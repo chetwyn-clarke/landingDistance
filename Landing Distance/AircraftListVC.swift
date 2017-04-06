@@ -16,7 +16,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        generateTestData()
+        //generateTestData()
         attemptFetch()
 
         // Uncomment the following line to preserve selection between presentations
@@ -81,16 +81,6 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
             }
             
         }
-    }
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-        tableView.endUpdates()
     }
     
     func attemptFetch() {
@@ -242,10 +232,18 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         configuration44.flapSetting = "Flaps 15"
         configuration44.aircraft = aircraft4
         
-        
-        
-        //ad.saveContext()
+        ad.saveContext()
     
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.endUpdates()
     }
 
 

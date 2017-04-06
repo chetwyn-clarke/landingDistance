@@ -50,10 +50,21 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         
         if let sections = controller.sections {
             let sectionInfo = sections[section]
-            return sectionInfo.name
+            
+            //Capitalise the results for the section
+            return sectionInfo.name.uppercased()
         }
         
         return ""
+    }
+    
+    // Next function sets the style for the headerView /  section titles
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Avenir", size: 14)
+        header.textLabel?.textColor = UIColor.lightGray
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,19 +85,16 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         return cell
     }
     
+    // Configure height of rows, and section headers.
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 40
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 80
-    }
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-        tableView.endUpdates()
     }
     
     func attemptFetch() {
@@ -115,6 +123,16 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
             
         }
         
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.endUpdates()
     }
 
 
