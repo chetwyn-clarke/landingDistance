@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7309240F1E95FDFB0070DA15 /* ConfigurationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */; };
 		733A27B21E95CC610079C4E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27B11E95CC610079C4E7 /* AppDelegate.swift */; };
 		733A27B71E95CC610079C4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A27B51E95CC610079C4E7 /* Main.storyboard */; };
 		733A27BA1E95CC610079C4E7 /* Landing_Distance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 733A27B81E95CC610079C4E7 /* Landing_Distance.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationListVC.swift; sourceTree = "<group>"; };
 		733A27AE1E95CC610079C4E7 /* Landing Distance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Landing Distance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		733A27B11E95CC610079C4E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733A27B61E95CC610079C4E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */,
+				7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				733A27D91E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift in Sources */,
 				733A27B21E95CC610079C4E7 /* AppDelegate.swift in Sources */,
 				733A27DA1E95D0090079C4E7 /* Aircraft+CoreDataClass.swift in Sources */,
+				7309240F1E95FDFB0070DA15 /* ConfigurationListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +372,7 @@
 				733A27C51E95CC610079C4E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

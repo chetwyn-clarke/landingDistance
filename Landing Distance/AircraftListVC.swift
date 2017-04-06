@@ -124,6 +124,114 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         aircraft4.type = "737-800W SFP"
         aircraft4.engine = "CFM56-7B26 (26K)"
         
+        //TO DO: Need to add notes to configurations, before including ad.saveContext
+        
+        // Aircraft 1
+        
+        let configuration11 = Configuration(context: context)
+        configuration11.name = "Flaps 15"
+        configuration11.type = "Normal"
+        configuration11.flapSetting = ""
+        configuration11.aircraft = aircraft1
+        
+        let configuration12 = Configuration(context: context)
+        configuration12.name = "Flaps 30"
+        configuration12.type = "Normal"
+        configuration12.flapSetting = ""
+        configuration12.aircraft = aircraft1
+        
+        let configuration13 = Configuration(context: context)
+        configuration13.name = "All Flaps Up Landing"
+        configuration13.type = "Non-Normal"
+        configuration13.flapSetting = ""
+        configuration13.aircraft = aircraft1
+        
+        let configuration14 = Configuration(context: context)
+        configuration14.name = "Leading Edge Flaps Transit"
+        configuration14.type = "Non-Normal"
+        configuration14.flapSetting = "Flaps 15"
+        configuration14.aircraft = aircraft1
+        
+        // Aircraft 2
+        
+        let configuration21 = Configuration(context: context)
+        configuration21.name = "Flaps 30"
+        configuration21.type = "Normal"
+        configuration21.flapSetting = ""
+        configuration21.aircraft = aircraft2
+        
+        let configuration22 = Configuration(context: context)
+        configuration22.name = "Flaps 40"
+        configuration22.type = "Normal"
+        configuration22.flapSetting = ""
+        configuration22.aircraft = aircraft2
+        
+        let configuration23 = Configuration(context: context)
+        configuration23.name = "Antiskid Inoperative"
+        configuration23.type = "Non-Normal"
+        configuration23.flapSetting = "Flaps 15"
+        configuration23.aircraft = aircraft2
+        
+        let configuration24 = Configuration(context: context)
+        configuration24.name = "Manual Reversion"
+        configuration24.type = "Non-Normal"
+        configuration24.flapSetting = "Flaps 15"
+        configuration24.aircraft = aircraft2
+        
+        // Aircraft 3
+        
+        let configuration31 = Configuration(context: context)
+        configuration31.name = "Flaps 15"
+        configuration31.type = "Normal"
+        configuration31.flapSetting = ""
+        configuration31.aircraft = aircraft3
+        
+        let configuration32 = Configuration(context: context)
+        configuration32.name = "Flaps 40"
+        configuration32.type = "Normal"
+        configuration32.flapSetting = ""
+        configuration32.aircraft = aircraft3
+        
+        let configuration33 = Configuration(context: context)
+        configuration33.name = "Loss of System A"
+        configuration33.type = "Non-Normal"
+        configuration33.flapSetting = "Flaps 30"
+        configuration33.aircraft = aircraft3
+        
+        let configuration34 = Configuration(context: context)
+        configuration34.name = "Loss of System B"
+        configuration34.type = "Non-Normal"
+        configuration34.flapSetting = "Flaps 15"
+        configuration34.aircraft = aircraft3
+        
+        // Aircraft 4
+        
+        let configuration41 = Configuration(context: context)
+        configuration41.name = "Flaps 40"
+        configuration41.type = "Normal"
+        configuration41.flapSetting = ""
+        configuration41.aircraft = aircraft4
+        
+        let configuration42 = Configuration(context: context)
+        configuration42.name = "Flaps 15"
+        configuration42.type = "Normal"
+        configuration42.flapSetting = ""
+        configuration42.aircraft = aircraft4
+        
+        let configuration43 = Configuration(context: context)
+        configuration43.name = "Speedbrake Do Not Arm"
+        configuration43.type = "Non-Normal"
+        configuration43.flapSetting = "Flaps 15"
+        configuration43.aircraft = aircraft4
+        
+        let configuration44 = Configuration(context: context)
+        configuration44.name = "One Engine Inoperative Landing"
+        configuration44.type = "Non-Normal"
+        configuration44.flapSetting = "Flaps 15"
+        configuration44.aircraft = aircraft4
+        
+        
+        
         //ad.saveContext()
     
     }
