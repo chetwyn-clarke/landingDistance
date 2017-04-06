@@ -1,4 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AdvisoryData" representedClassName="AdvisoryData" syncable="YES">
+        <attribute name="altAdjHigh" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="altAdjStd" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="appSpeedAdj" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="brakeAction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="brakeConfiguration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="refSpeed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="revThrustAdjNoRev" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="revThrustAdjOneRev" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="slopeAdjDown" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="slopeAdjUp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tempAdjAbvISA" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tempAdjBlwISA" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weightAdjAbvRef" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weightAdjBlwRef" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="windAdjHeadwind" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="windAdjTailwind" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="aircraft" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aircraft" inverseName="advisoryData" inverseEntity="Aircraft" syncable="YES"/>
+        <relationship name="configuration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="advisoryData" inverseEntity="Configuration" syncable="YES"/>
+    </entity>
+    <entity name="Aircraft" representedClassName="Aircraft" syncable="YES">
+        <attribute name="engine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="advisoryData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdvisoryData" inverseName="aircraft" inverseEntity="AdvisoryData" syncable="YES"/>
+        <relationship name="configuration" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Configuration" inverseName="aircraft" inverseEntity="Configuration" syncable="YES"/>
+    </entity>
+    <entity name="Configuration" representedClassName="Configuration" syncable="YES">
+        <attribute name="flapSetting" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="advisoryData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdvisoryData" inverseName="configuration" inverseEntity="AdvisoryData" syncable="YES"/>
+        <relationship name="aircraft" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aircraft" inverseName="configuration" inverseEntity="Aircraft" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AdvisoryData" positionX="11482" positionY="-210" width="128" height="345"/>
+        <element name="Aircraft" positionX="11034" positionY="12" width="128" height="103"/>
+        <element name="Configuration" positionX="11259" positionY="-180" width="128" height="133"/>
+    </elements>
 </model>

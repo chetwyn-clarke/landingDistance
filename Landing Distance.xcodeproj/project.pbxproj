@@ -13,6 +13,12 @@
 		733A27BA1E95CC610079C4E7 /* Landing_Distance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 733A27B81E95CC610079C4E7 /* Landing_Distance.xcdatamodeld */; };
 		733A27BC1E95CC610079C4E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733A27BB1E95CC610079C4E7 /* Assets.xcassets */; };
 		733A27BF1E95CC610079C4E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A27BD1E95CC610079C4E7 /* LaunchScreen.storyboard */; };
+		733A27D81E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D21E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift */; };
+		733A27D91E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D31E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift */; };
+		733A27DA1E95D0090079C4E7 /* Aircraft+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D41E95D0090079C4E7 /* Aircraft+CoreDataClass.swift */; };
+		733A27DB1E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D51E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift */; };
+		733A27DC1E95D0090079C4E7 /* Configuration+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D61E95D0090079C4E7 /* Configuration+CoreDataClass.swift */; };
+		733A27DD1E95D0090079C4E7 /* Configuration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D71E95D0090079C4E7 /* Configuration+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		733A27BB1E95CC610079C4E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		733A27BE1E95CC610079C4E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733A27C01E95CC610079C4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		733A27D21E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AdvisoryData+CoreDataClass.swift"; path = "../AdvisoryData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		733A27D31E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AdvisoryData+CoreDataProperties.swift"; path = "../AdvisoryData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		733A27D41E95D0090079C4E7 /* Aircraft+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Aircraft+CoreDataClass.swift"; path = "../Aircraft+CoreDataClass.swift"; sourceTree = "<group>"; };
+		733A27D51E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Aircraft+CoreDataProperties.swift"; path = "../Aircraft+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		733A27D61E95D0090079C4E7 /* Configuration+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Configuration+CoreDataClass.swift"; path = "../Configuration+CoreDataClass.swift"; sourceTree = "<group>"; };
+		733A27D71E95D0090079C4E7 /* Configuration+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Configuration+CoreDataProperties.swift"; path = "../Configuration+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,9 @@
 		733A27B01E95CC610079C4E7 /* Landing Distance */ = {
 			isa = PBXGroup;
 			children = (
+				733A27E01E95D0910079C4E7 /* Model */,
+				733A27DF1E95D08B0079C4E7 /* View */,
+				733A27DE1E95D07F0079C4E7 /* Controller */,
 				733A27B11E95CC610079C4E7 /* AppDelegate.swift */,
 				733A27B31E95CC610079C4E7 /* ViewController.swift */,
 				733A27B51E95CC610079C4E7 /* Main.storyboard */,
@@ -65,6 +80,41 @@
 				733A27B81E95CC610079C4E7 /* Landing_Distance.xcdatamodeld */,
 			);
 			path = "Landing Distance";
+			sourceTree = "<group>";
+		};
+		733A27DE1E95D07F0079C4E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		733A27DF1E95D08B0079C4E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		733A27E01E95D0910079C4E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				733A27D21E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift */,
+				733A27D41E95D0090079C4E7 /* Aircraft+CoreDataClass.swift */,
+				733A27D61E95D0090079C4E7 /* Configuration+CoreDataClass.swift */,
+				733A27E11E95D0990079C4E7 /* Generated */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		733A27E11E95D0990079C4E7 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				733A27D31E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift */,
+				733A27D51E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift */,
+				733A27D71E95D0090079C4E7 /* Configuration+CoreDataProperties.swift */,
+			);
+			name = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733A27DC1E95D0090079C4E7 /* Configuration+CoreDataClass.swift in Sources */,
+				733A27D81E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift in Sources */,
+				733A27DD1E95D0090079C4E7 /* Configuration+CoreDataProperties.swift in Sources */,
 				733A27BA1E95CC610079C4E7 /* Landing_Distance.xcdatamodeld in Sources */,
 				733A27B41E95CC610079C4E7 /* ViewController.swift in Sources */,
+				733A27DB1E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift in Sources */,
+				733A27D91E95D0090079C4E7 /* AdvisoryData+CoreDataProperties.swift in Sources */,
 				733A27B21E95CC610079C4E7 /* AppDelegate.swift in Sources */,
+				733A27DA1E95D0090079C4E7 /* Aircraft+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
