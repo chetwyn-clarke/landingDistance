@@ -90,22 +90,53 @@
             </objects>
             <point key="canvasLocation" x="1146" y="-361"/>
         </scene>
-        <!--Configuration ListVC-->
+        <!--Configuration-->
         <scene sceneID="SZT-2d-ixR">
             <objects>
-                <tableViewController id="SxH-o9-4gD" customClass="ConfigurationListVC" customModule="Landing_Distance" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Configuration" id="SxH-o9-4gD" customClass="ConfigurationListVC" customModule="Landing_Distance" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tm9-6C-vYM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bqs-VT-tFR">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConfigurationCell" rowHeight="80" id="bqs-VT-tFR" customClass="ConfigurationCell" customModule="Landing_Distance" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bqs-VT-tFR" id="d7h-js-dFr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2mm-kT-glY">
+                                            <rect key="frame" x="16" y="7" width="288" height="65.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Config Type (Flaps)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqA-yg-z9X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="145.5" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="Xpf-WK-ezN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flap Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iV8-DQ-7oj">
+                                                    <rect key="frame" x="0.0" y="45" width="81" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2mm-kT-glY" firstAttribute="centerY" secondItem="d7h-js-dFr" secondAttribute="centerY" id="K47-df-RcU"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2mm-kT-glY" secondAttribute="trailing" constant="8" id="W6u-7F-pr6"/>
+                                        <constraint firstItem="2mm-kT-glY" firstAttribute="leading" secondItem="d7h-js-dFr" secondAttribute="leadingMargin" constant="8" id="r23-31-oXw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="configurationLbl" destination="IqA-yg-z9X" id="cST-UZ-AJO"/>
+                                    <outlet property="flapLbl" destination="iV8-DQ-7oj" id="Dq2-3S-DOD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -116,7 +147,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MnY-LA-kFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2071" y="-362"/>
+            <point key="canvasLocation" x="2070.703125" y="-362.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Zo-Pw-VfM">

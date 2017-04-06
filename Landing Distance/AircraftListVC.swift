@@ -73,6 +73,16 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? ConfigurationListVC {
+            if let aircraft = sender as? Aircraft {
+                destination.selectedAircraft = aircraft
+            }
+            
+        }
+    }
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
         tableView.beginUpdates()
@@ -87,7 +97,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         
         let fetchRequest: NSFetchRequest<Aircraft> = Aircraft.fetchRequest()
         let typeSort = NSSortDescriptor(key: "type", ascending: true)
-        fetchRequest.sortDescriptors = [typeSort]
+        let engineSort = NSSortDescriptor(key: "engine", ascending: true)
+        fetchRequest.sortDescriptors = [typeSort, engineSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -113,7 +124,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         aircraft1.engine = "CFM56-7B22 (22K)"
         
         let aircraft2 = Aircraft(context: context)
-        aircraft2.type = "737-700W"
+        //Put the extra spaces after the W to make the aircraft type unique for sorting purposes.  Need to find a better way.
+        aircraft2.type = "737-700W  "
         aircraft2.engine = "CFM56-7B24 (24K)"
         
         let aircraft3 = Aircraft(context: context)

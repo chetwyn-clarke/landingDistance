@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import CoreData
 
-class ConfigurationListVC: UITableViewController {
+class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    private var _selectedAircraft: Aircraft!
+    
+    var selectedAircraft: Aircraft {
+        get {
+            return _selectedAircraft
+        } set {
+            _selectedAircraft = newValue
+        }
+    }
+    
+    var controller: NSFetchedResultsController<Configuration>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        attemptFetch()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,32 +35,88 @@ class ConfigurationListVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
+        if let sections = controller.sections {
+            return sections.count
+        }
+        
         return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if let sections = controller.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.name
+        }
+        
+        return ""
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
+        if let sections = controller.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        
         return 0
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigurationCell", for: indexPath) as! ConfigurationCell
+        let configuration = controller.object(at: indexPath as IndexPath)
+        cell.configureCell(configuration: configuration)
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 80
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        tableView.endUpdates()
+    }
+    
+    func attemptFetch() {
+        
+        let fetchRequest: NSFetchRequest<Configuration> = Configuration.fetchRequest()
+        let typeSort = NSSortDescriptor(key: "type", ascending: false)
+        let nameSort = NSSortDescriptor(key: "name", ascending: true)
+        //Use the engine for the predicate since the engines are unique, whereas the types are not.
+        let predicate = NSPredicate(format: "%K == %@", argumentArray: ["aircraft.type", selectedAircraft.type!])
+        fetchRequest.sortDescriptors = [typeSort, nameSort]
+        fetchRequest.predicate = predicate
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "type", cacheName: nil)
+        
+        controller.delegate = self
+        self.controller = controller
+        
+        do {
+            
+            try controller.performFetch()
+            
+        } catch {
+            
+            let error = error as NSError
+            print("\(error)")
+            
+        }
+        
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
