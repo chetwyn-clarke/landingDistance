@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7303636E1E9709EA00778BCB /* Test Documentation.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7303636D1E9709EA00778BCB /* Test Documentation.rtf */; };
 		7309240F1E95FDFB0070DA15 /* ConfigurationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */; };
 		730924111E96054C0070DA15 /* ConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730924101E96054C0070DA15 /* ConfigurationCell.swift */; };
 		733A27B21E95CC610079C4E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27B11E95CC610079C4E7 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7303636D1E9709EA00778BCB /* Test Documentation.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Test Documentation.rtf"; sourceTree = "<group>"; };
 		7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationListVC.swift; sourceTree = "<group>"; };
 		730924101E96054C0070DA15 /* ConfigurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCell.swift; sourceTree = "<group>"; };
 		733A27AE1E95CC610079C4E7 /* Landing Distance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Landing Distance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7303636A1E97089500778BCB /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				7303636D1E9709EA00778BCB /* Test Documentation.rtf */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
 		733A27A51E95CC610079C4E7 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		733A27B01E95CC610079C4E7 /* Landing Distance */ = {
 			isa = PBXGroup;
 			children = (
+				7303636A1E97089500778BCB /* Files */,
 				733A27E01E95D0910079C4E7 /* Model */,
 				733A27DF1E95D08B0079C4E7 /* View */,
 				733A27DE1E95D07F0079C4E7 /* Controller */,
@@ -188,6 +199,7 @@
 			files = (
 				733A27BF1E95CC610079C4E7 /* LaunchScreen.storyboard in Resources */,
 				733A27BC1E95CC610079C4E7 /* Assets.xcassets in Resources */,
+				7303636E1E9709EA00778BCB /* Test Documentation.rtf in Resources */,
 				733A27B71E95CC610079C4E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

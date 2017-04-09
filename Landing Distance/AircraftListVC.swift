@@ -126,7 +126,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         aircraft4.type = "737-800W SFP"
         aircraft4.engine = "CFM56-7B26 (26K)"
         
-        //TO DO: Need to add notes to configurations, before including ad.saveContext
+        //TO DO: Need to add notes to configurations, before including ad.saveContext.  Need to find a way to add notes since they are already saved to context.
         
         // Aircraft 1
         
@@ -235,6 +235,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         ad.saveContext()
     
     }
+    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
