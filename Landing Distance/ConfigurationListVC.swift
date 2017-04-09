@@ -156,8 +156,8 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         advisoryData331.appSpeedAdj = 260
         advisoryData331.revThrustAdjOneRev = 690
         advisoryData331.revThrustAdjNoRev = 1560
-        advisoryData331.aircraft = aircraft3
-        advisoryData331.configuration = configuration33
+        //advisoryData331.aircraft = aircraft3
+        //advisoryData331.configuration = configuration33
         
         let advisoryData332 = AdvisoryData(context: context)
         advisoryData332.brakeAction = "Dry"
@@ -178,8 +178,8 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         advisoryData332.appSpeedAdj = 270
         advisoryData332.revThrustAdjOneRev = 690
         advisoryData332.revThrustAdjNoRev = 1560
-        advisoryData332.aircraft = aircraft3
-        advisoryData332.configuration = configuration33
+        //advisoryData332.aircraft = aircraft3
+        //advisoryData332.configuration = configuration33
         
         let advisoryData333 = AdvisoryData(context: context)
         advisoryData333.brakeAction = "Dry"
@@ -200,8 +200,8 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         advisoryData333.appSpeedAdj = 430
         advisoryData333.revThrustAdjOneRev = 170
         advisoryData333.revThrustAdjNoRev = 770
-        advisoryData333.aircraft = aircraft3
-        advisoryData333.configuration = configuration33
+        //advisoryData333.aircraft = aircraft3
+        //advisoryData333.configuration = configuration33
         
         let advisoryData341 = AdvisoryData(context: context)
         advisoryData341.brakeAction = "Dry"
@@ -222,8 +222,8 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
         advisoryData341.appSpeedAdj = 140
         advisoryData341.revThrustAdjOneRev = 130
         advisoryData341.revThrustAdjNoRev = 130
-        advisoryData341.aircraft = aircraft3
-        advisoryData341.configuration = configuration34
+        //advisoryData341.aircraft = aircraft3
+        //advisoryData341.configuration = configuration34
         
         
         //ad.saveContext()

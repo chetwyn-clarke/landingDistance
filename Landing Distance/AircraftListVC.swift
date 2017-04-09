@@ -17,6 +17,10 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         super.viewDidLoad()
         
         //generateTestData()
+        //deleteAircraft()
+        //deleteConfigurations()
+        //deleteAdvisoryInformation()
+        //deleteAllInfo()
         attemptFetch()
 
         // Uncomment the following line to preserve selection between presentations
@@ -126,9 +130,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         aircraft4.type = "737-800W SFP"
         aircraft4.engine = "CFM56-7B26 (26K)"
         
-        //TO DO: Need to add notes to configurations, before including ad.saveContext.  Need to find a way to add notes since they are already saved to context.
-        
-        // Aircraft 1
+        // Configuratons for Aircraft 1
         
         let configuration11 = Configuration(context: context)
         configuration11.name = "Flaps 15"
@@ -154,7 +156,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         configuration14.flapSetting = "Flaps 15"
         configuration14.aircraft = aircraft1
         
-        // Aircraft 2
+        // Configurations for Aircraft 2
         
         let configuration21 = Configuration(context: context)
         configuration21.name = "Flaps 30"
@@ -180,7 +182,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         configuration24.flapSetting = "Flaps 15"
         configuration24.aircraft = aircraft2
         
-        // Aircraft 3
+        // Configurations for Aircraft 3
         
         let configuration31 = Configuration(context: context)
         configuration31.name = "Flaps 15"
@@ -199,14 +201,16 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         configuration33.type = "Non-Normal"
         configuration33.flapSetting = "Flaps 30"
         configuration33.aircraft = aircraft3
+        configuration33.notes = "Reference distance is based on sea level, standard day, no wind or slope, and maximum available reverse thrust.\n\nMAX MANUAL assumes maximum achievable manual braking.\n\nReference Distance includes an air distance allowance of 1500 ft. from threshold to touchdown.\n\nActual (unfactored) distances are shown."
         
         let configuration34 = Configuration(context: context)
         configuration34.name = "Loss of System B"
         configuration34.type = "Non-Normal"
         configuration34.flapSetting = "Flaps 15"
         configuration34.aircraft = aircraft3
+        configuration34.notes = "Reference distance is based on sea level, standard day, no wind or slope, and maximum available reverse thrust.\n\nMAX MANUAL assumes maximum achievable manual braking.\n\nReference Distance includes an air distance allowance of 1500 ft. from threshold to touchdown.\n\nActual (unfactored) distances are shown."
         
-        // Aircraft 4
+        // Configurations for Aircraft 4
         
         let configuration41 = Configuration(context: context)
         configuration41.name = "Flaps 40"
@@ -232,10 +236,155 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         configuration44.flapSetting = "Flaps 15"
         configuration44.aircraft = aircraft4
         
+        // Advisory Data for Configuration33
+        
+        let advisoryData331 = AdvisoryData(context: context)
+        advisoryData331.brakeAction = "Good to Medium"
+        advisoryData331.brakeConfiguration = "Max Manual"
+        advisoryData331.refWeight = 145000
+        advisoryData331.refDistance = 6510
+        advisoryData331.weightAdjAbvRef = 340
+        advisoryData331.weightAdjBlwRef = -350
+        advisoryData331.altAdjStd = 180
+        advisoryData331.altAdjHigh = 250
+        advisoryData331.windAdjHeadwind = -280
+        advisoryData331.windAdjTailwind = 980
+        advisoryData331.slopeAdjUp = 260
+        advisoryData331.slopeAdjDown = -210
+        advisoryData331.tempAdjAbvISA = 160
+        advisoryData331.tempAdjBlwISA = -160
+        advisoryData331.refSpeed = "VREF30"
+        advisoryData331.appSpeedAdj = 260
+        advisoryData331.revThrustAdjOneRev = 690
+        advisoryData331.revThrustAdjNoRev = 1560
+        advisoryData331.aircraft = aircraft3
+        advisoryData331.configuration = configuration33
+        
+        let advisoryData332 = AdvisoryData(context: context)
+        advisoryData332.brakeAction = "Dry"
+        advisoryData332.brakeConfiguration = "Autobrake Max"
+        advisoryData332.refWeight = 145000
+        advisoryData332.refDistance = 6520
+        advisoryData332.weightAdjAbvRef = 340
+        advisoryData332.weightAdjBlwRef = -360
+        advisoryData332.altAdjStd = 180
+        advisoryData332.altAdjHigh = 250
+        advisoryData332.windAdjHeadwind = -280
+        advisoryData332.windAdjTailwind = 980
+        advisoryData332.slopeAdjUp = 250
+        advisoryData332.slopeAdjDown = -200
+        advisoryData332.tempAdjAbvISA = 160
+        advisoryData332.tempAdjBlwISA = -160
+        advisoryData332.refSpeed = "VREF30"
+        advisoryData332.appSpeedAdj = 270
+        advisoryData332.revThrustAdjOneRev = 690
+        advisoryData332.revThrustAdjNoRev = 1560
+        advisoryData332.aircraft = aircraft3
+        advisoryData332.configuration = configuration33
+        
+        let advisoryData333 = AdvisoryData(context: context)
+        advisoryData333.brakeAction = "Dry"
+        advisoryData333.brakeConfiguration = "Autobrake 2"
+        advisoryData333.refWeight = 145000
+        advisoryData333.refDistance = 8120
+        advisoryData333.weightAdjAbvRef = 420
+        advisoryData333.weightAdjBlwRef = -470
+        advisoryData333.altAdjStd = 220
+        advisoryData333.altAdjHigh = 290
+        advisoryData333.windAdjHeadwind = -360
+        advisoryData333.windAdjTailwind = 1230
+        advisoryData333.slopeAdjUp = 100
+        advisoryData333.slopeAdjDown = -80
+        advisoryData333.tempAdjAbvISA = 220
+        advisoryData333.tempAdjBlwISA = -230
+        advisoryData333.refSpeed = "VREF30"
+        advisoryData333.appSpeedAdj = 430
+        advisoryData333.revThrustAdjOneRev = 170
+        advisoryData333.revThrustAdjNoRev = 770
+        advisoryData333.aircraft = aircraft3
+        advisoryData333.configuration = configuration33
+        
+        // Advisory Data for Configuration34
+        
+        let advisoryData341 = AdvisoryData(context: context)
+        advisoryData341.brakeAction = "Dry"
+        advisoryData341.brakeConfiguration = "Max Manual"
+        advisoryData341.refWeight = 145000
+        advisoryData341.refDistance = 4270
+        advisoryData341.weightAdjAbvRef = 170
+        advisoryData341.weightAdjBlwRef = -180
+        advisoryData341.altAdjStd = 90
+        advisoryData341.altAdjHigh = 120
+        advisoryData341.windAdjHeadwind = -140
+        advisoryData341.windAdjTailwind = 480
+        advisoryData341.slopeAdjUp = 60
+        advisoryData341.slopeAdjDown = -50
+        advisoryData341.tempAdjAbvISA = 90
+        advisoryData341.tempAdjBlwISA = -90
+        advisoryData341.refSpeed = "VREF15"
+        advisoryData341.appSpeedAdj = 140
+        advisoryData341.revThrustAdjOneRev = 130
+        advisoryData341.revThrustAdjNoRev = 130
+        advisoryData341.aircraft = aircraft3
+        advisoryData341.configuration = configuration34
+        
         ad.saveContext()
     
     }
     
+    func deleteAircraft() {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Aircraft")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            ad.saveContext()
+            print("Aircraft deleted")
+        } catch {
+            let error = error as NSError
+            print("\(error)")
+        }
+    }
+    
+    func deleteConfigurations() {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Configuration")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            ad.saveContext()
+            print("Configurations deleted")
+        } catch {
+            let error = error as NSError
+            print("\(error)")
+        }
+    }
+    
+    func deleteAdvisoryInformation() {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AdvisoryData")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            ad.saveContext()
+            print("Advisory Data deleted")
+        } catch {
+            let error = error as NSError
+            print("\(error)")
+        }
+    }
+    
+    func deleteAllInfo() {
+        deleteAircraft()
+        deleteConfigurations()
+        deleteAdvisoryInformation()
+    }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
