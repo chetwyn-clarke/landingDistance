@@ -328,6 +328,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData341.aircraft = aircraft3
         advisoryData341.configuration = configuration34
         
+        print("Test data generated")
+        
         ad.saveContext()
     
     }

@@ -23,6 +23,7 @@
 		733A27DD1E95D0090079C4E7 /* Configuration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27D71E95D0090079C4E7 /* Configuration+CoreDataProperties.swift */; };
 		733A27E31E95D4390079C4E7 /* AircraftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27E21E95D4390079C4E7 /* AircraftCell.swift */; };
 		733A27E51E95D5A20079C4E7 /* AircraftListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */; };
+		733B47FD1E9BA85A0097D67D /* EnterConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		733A27D71E95D0090079C4E7 /* Configuration+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Configuration+CoreDataProperties.swift"; path = "../Configuration+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		733A27E21E95D4390079C4E7 /* AircraftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftCell.swift; sourceTree = "<group>"; };
 		733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftListVC.swift; sourceTree = "<group>"; };
+		733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterConditionsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */,
 				7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */,
+				733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				733A27D81E95D0090079C4E7 /* AdvisoryData+CoreDataClass.swift in Sources */,
 				733A27E51E95D5A20079C4E7 /* AircraftListVC.swift in Sources */,
 				733A27DD1E95D0090079C4E7 /* Configuration+CoreDataProperties.swift in Sources */,
+				733B47FD1E9BA85A0097D67D /* EnterConditionsVC.swift in Sources */,
 				733A27BA1E95CC610079C4E7 /* Landing_Distance.xcdatamodeld in Sources */,
 				733A27DB1E95D0090079C4E7 /* Aircraft+CoreDataProperties.swift in Sources */,
 				733A27E31E95D4390079C4E7 /* AircraftCell.swift in Sources */,
