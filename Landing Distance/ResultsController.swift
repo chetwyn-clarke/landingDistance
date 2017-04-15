@@ -24,6 +24,7 @@ class ResultsController {
     private var _windGust: Double!
     private var _temperature: Double!
     private var _landingRunway: Double!
+    private var _runwaySlope: Double = -2.0 // Hard coded for now, but need to change this to reflect actual data once I have database.
     
     private var _aircraftWeight: Double!
     private var _approachSpdAdditive: Double!
@@ -44,6 +45,14 @@ class ResultsController {
         }
     }
     
+    var runwaySlope: Double {
+        get {
+            return _runwaySlope
+        } set {
+            _runwaySlope = newValue
+        }
+    }
+    
     var aircraftWeight: Double {
         get {
             return _aircraftWeight
@@ -51,6 +60,15 @@ class ResultsController {
             _aircraftWeight = newValue
         }
     }
+    
+    var approachSpdAdditive: Double {
+        get {
+            return _approachSpdAdditive
+        } set {
+            _approachSpdAdditive = newValue
+        }
+    }
+    
     
     
     
@@ -62,9 +80,19 @@ class ResultsController {
         
         for data in advisoryData {
             
-            var weightAdjustment = calculateWeightAdjustment(aircraftWeight: aircraftWeight, data: data)
+            let weightAdjustment = calculateWeightAdjustment(aircraftWeight: aircraftWeight, data: data)
             
-            //alt adjustment, wind adjustment, slope adjustment, temp adjustment, approach speed adjustmeent, reverse thrust adjustment
+            let altitudeAdjustment = calculateAltitudeAdjustment(airportAltitude: airportAltitude, data: data)
+            
+            let slopeAdjustment = calculateSlopeAdjustment(runwaySlope: runwaySlope, data: data)
+            
+            let approachSpeedAdjustment = calculateApproachSpeedAdjustment(adjustmentToRefSpd: approachSpdAdditive, data: data)
+            
+            //wind adjustment, temp adjustment, reverse thrust adjustment
+            
+            let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + slopeAdjustment + approachSpeedAdjustment
+            
+            print("Calculated landing distance: \(landingDistance)")
             
         }
     }
@@ -100,8 +128,56 @@ class ResultsController {
     
     func calculateAltitudeAdjustment(airportAltitude: Double, data: AdvisoryData) -> Double {
         
-        return 0.0
+        var altitudeAdjustment: Double = 0
+        
+        if airportAltitude <= 8000 {
+            altitudeAdjustment = (data.altAdjStd / 1000) * airportAltitude
+            
+        } else if airportAltitude > 8000 {
+            altitudeAdjustment = (data.altAdjStd * 8) + ((airportAltitude - 8000) * (data.altAdjHigh / 1000))
+            
+        }
+        
+        print("Altitude adjustment: \(altitudeAdjustment)")
+        
+        return altitudeAdjustment
     }
     
+    // TO DO: Wind adjustment function
+    
+    func calculateSlopeAdjustment(runwaySlope: Double, data: AdvisoryData) -> Double {
+        
+        var slopeAdjustment: Double = 0
+        
+        if runwaySlope > 0 {
+            slopeAdjustment = runwaySlope * data.slopeAdjUp
+            
+        } else if runwaySlope < 0 {
+            slopeAdjustment = runwaySlope * data.slopeAdjDown
+            
+        } else {
+            
+        }
+        
+        print("Uphill slope factor: \(data.slopeAdjUp)")
+        print("Downhill slope factor: \(data.slopeAdjDown)")
+        print("Slope adjustment: \(round(slopeAdjustment))")
+        
+        return slopeAdjustment
+        
+    }
+    
+    //TO DO: Temperature adjustment
+    
+    func calculateApproachSpeedAdjustment(adjustmentToRefSpd: Double, data: AdvisoryData) -> Double {
+        
+        let refAdjustment: Double = adjustmentToRefSpd * (data.appSpeedAdj / 5)
+        
+        print("Approach speed adjustment factor: \(data.appSpeedAdj)")
+        print("Approach speed adustment: \(round(refAdjustment))")
+        
+        return refAdjustment
+        
+    }
     
 }
