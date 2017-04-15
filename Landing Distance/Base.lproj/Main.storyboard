@@ -417,7 +417,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Dry"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="LOb-Cy-Erh"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="86H-a2-cT8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-Gq-dSM">
@@ -430,7 +430,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Good"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="CkQ-32-6Ec"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="pyb-jA-VoD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oc8-gd-8nn">
@@ -443,7 +443,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Good to Medium"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="wDb-xD-nkv"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="vMD-nX-suZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -461,7 +461,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Medium"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="Umb-t5-NI6"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="Sr1-kd-BcP"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Nc-kxy">
@@ -474,7 +474,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Medium to Poor"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="t88-67-fOG"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="u4G-LR-dt8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-9e-e8T">
@@ -487,7 +487,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Poor"/>
                                                 <connections>
-                                                    <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="2G1-K7-Cd9"/>
+                                                    <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="F7V-zT-O7Y"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -580,7 +580,7 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="Both Reversers"/>
                                         <connections>
-                                            <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="DZp-EI-5hj"/>
+                                            <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="aD0-4B-Ipn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-PU-2mU">
@@ -593,12 +593,12 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="One Reverser"/>
                                         <connections>
-                                            <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="MMN-Lo-a4O"/>
+                                            <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="anu-Xq-1NO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gde-aC-Dvt">
                                         <rect key="frame" x="440" y="0.0" width="160" height="35"/>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="9X4-ae-Kh6"/>
                                             <constraint firstAttribute="height" constant="35" id="XEq-0O-Pzh"/>
@@ -606,7 +606,7 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="No Reversers"/>
                                         <connections>
-                                            <action selector="selectionButtonPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="ng0-vE-ve0"/>
+                                            <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="NKl-k5-q4f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -629,11 +629,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="calculateBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="C52-Fl-ej1"/>
+                                    <action selector="onCalculateBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="poK-KK-ak1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wci-dv-g2K" firstAttribute="trailing" secondItem="lbD-fn-7kr" secondAttribute="trailingMargin" id="0YT-Uy-9BA"/>
                             <constraint firstItem="Y6o-wo-jXi" firstAttribute="top" secondItem="oy9-Ld-Kr0" secondAttribute="bottom" constant="15" id="0zc-we-r0G"/>
