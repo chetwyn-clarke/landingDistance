@@ -24,6 +24,8 @@ class EnterConditionsVC: UIViewController {
     
     //@IBOutlet weak var slope: UITextField!  (for future implementation)
     
+    @IBOutlet weak var runwayHeading: UITextField!
+    
     @IBOutlet weak var aircraftWeight: UITextField!
     
     @IBOutlet weak var approachSpdAdditive: UITextField!

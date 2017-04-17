@@ -344,7 +344,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKK-e2-SOz" userLabel="Landing Runway Stack View">
                                 <rect key="frame" x="30" y="197" width="195" height="25"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landing Runway:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxa-TR-qCd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runway heading:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxa-TR-qCd">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="135" id="LzC-2s-6ML"/>
@@ -687,6 +687,7 @@
                         <outlet property="noReversersBtn" destination="gde-aC-Dvt" id="LeL-dm-N0v"/>
                         <outlet property="oneReverserBtn" destination="cyG-PU-2mU" id="HSp-pk-g03"/>
                         <outlet property="poorBtn" destination="XT9-9e-e8T" id="Txu-wg-xzZ"/>
+                        <outlet property="runwayHeading" destination="2ht-s8-F0t" id="d05-3F-clf"/>
                         <outlet property="temperature" destination="SxM-N4-QF1" id="plE-iA-s2f"/>
                         <outlet property="twoReversersBtn" destination="H5W-B7-Vya" id="EnA-Rn-0Ox"/>
                         <outlet property="windDirection" destination="yV3-hb-2H5" id="I2E-gA-RSx"/>
