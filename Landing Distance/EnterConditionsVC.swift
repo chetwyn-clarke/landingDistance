@@ -33,32 +33,27 @@ class EnterConditionsVC: UIViewController {
     //Buttons
     
     @IBOutlet weak var dryBtn: UIButton!
-    
     @IBOutlet weak var goodBtn: UIButton!
-    
     @IBOutlet weak var goodToMediumBtn: UIButton!
-    
     @IBOutlet weak var mediumBtn: UIButton!
-    
     @IBOutlet weak var mediumToPoorBtn: UIButton!
-    
     @IBOutlet weak var poorBtn: UIButton!
-    
     @IBOutlet weak var twoReversersBtn: UIButton!
-    
     @IBOutlet weak var oneReverserBtn: UIButton!
-    
     @IBOutlet weak var noReversersBtn: UIButton!
-    
     @IBOutlet weak var calculateBtn: UIButton!
     
     
-
+    //For shortcut purposes.
+    let rc = ResultsController.controller
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //How can I transfer these to a view swift file?
     func selectButton (button: UIButton) {
         
         button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
@@ -72,6 +67,58 @@ class EnterConditionsVC: UIViewController {
         button.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
         
     }
+    
+    func gatherInfoForResultsController() {
+        
+        //        Still needed:
+        //        Advisory data set or array
+        //        Reported braking action
+        //        Approach Speed Additive
+        //        Reversers Available
+        
+        //TO DO: Need to find a way to check that all text fields contain values.
+        
+        if let altitude = altitude.text {
+            rc.airportAltitude = Double(altitude)!
+        }
+        
+        if let windDirection = windDirection.text {
+            rc.windDirection = Double(windDirection)!
+        }
+        
+        if let windSpeed = windSpeed.text {
+            rc.windSpeed = Double(windSpeed)!
+        }
+        
+        if let windGust = windGusts.text {
+            rc.windGust = Double(windGust)!
+        }
+        
+        if let temperature = temperature.text {
+            rc.airportTemperature = Double(temperature)!
+        }
+        
+        if let runwayHeading = runwayHeading.text {
+            rc.runwayHeading = Double(runwayHeading)!
+        }
+        
+        //Hard code the runway slope
+        rc.runwaySlope = -2.0
+        
+        if let weight = aircraftWeight.text {
+            rc.aircraftWeight = Double(weight)!
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
     @IBAction func brakingActionBtnPressed(_ sender: UIButton) {
         
@@ -173,9 +220,10 @@ class EnterConditionsVC: UIViewController {
     
     @IBAction func onCalculateBtnPressed(_ sender: Any) {
         
-        if let weight = aircraftWeight.text {
-            ResultsController.instance.aircraftWeight = Double(weight)!
-        }
+        gatherInfoForResultsController()
+        rc.attemptCalculation()
+        
+        //Add segue to results display page.
         
     }
     

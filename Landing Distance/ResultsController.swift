@@ -12,22 +12,22 @@ import CoreData
 
 class ResultsController {
     
-    static let instance = ResultsController()
+    static let controller = ResultsController()
     
     // Variables needed:
     
     private var _advisoryData: [AdvisoryData]!
-    
     private var _airportAltitude: Double!
     private var _windDirection: Double!
     private var _windSpeed: Double!
     private var _windGust: Double!
     private var _temperature: Double!
     private var _runwayHeading: Double!
-    private var _runwaySlope: Double = -2.0 // Hard coded for now, but need to change this to reflect actual data once I have database.
-    
+    private var _runwaySlope: Double!
+    // Hard coded for now (in EnterConditionsVC), but need to change this to reflect actual data once I have database.
     private var _aircraftWeight: Double!
     private var _approachSpdAdditive: Double!
+    private var _reversersAvailable: Int!
     
     var advisoryData: [AdvisoryData] {
         get {
@@ -109,12 +109,20 @@ class ResultsController {
         }
     }
     
+    var reversersAvailable: Int {
+        get {
+            return _reversersAvailable
+        } set {
+            _reversersAvailable = newValue
+        }
+    }
+    
     
     // Functions
     
     func attemptCalculation() {
         
-        //Need to get the advisory data.
+        //Need to get the advisory data.  Need to get only the advisory data associated with a specific braking action. Might have to do some rearranging to order them into an array?  Or, at end of function put them in a dictionary ordered alphabetically, with the key being the braking configuration, and the value being the calculated landing distance.?
         
         for data in advisoryData {
             
@@ -130,9 +138,9 @@ class ResultsController {
             
             let approachSpeedAdjustment = calculateApproachSpeedAdjustment(adjustmentToRefSpd: _approachSpdAdditive, data: data)
             
-            //reverse thrust adjustment
+            let reverseThrustAdjustment = calculateReverseThrustAdjustment(reversersAvailable: _reversersAvailable, data: data)
             
-            let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + windAdjustment + slopeAdjustment + temperatureAdjustment + approachSpeedAdjustment
+            let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + windAdjustment + slopeAdjustment + temperatureAdjustment + approachSpeedAdjustment + reverseThrustAdjustment
             
             print("Calculated landing distance: \(landingDistance)")
             
@@ -321,6 +329,23 @@ class ResultsController {
         
     }
     
-    // TO DO: Reverse thrust adjustment
+    func calculateReverseThrustAdjustment(reversersAvailable: Int, data: AdvisoryData) -> Double {
+        
+        var reverseThrustAdjustment: Double = 0
+        
+        if reversersAvailable == 0 {
+            
+            reverseThrustAdjustment = data.revThrustAdjNoRev
+            
+        } else if reversersAvailable == 1 {
+            
+            reverseThrustAdjustment = data.revThrustAdjOneRev
+            
+        }
+        
+        print("Reverse thrust adjustment: \(reverseThrustAdjustment)")
+        
+        return reverseThrustAdjustment
+    }
     
 }
