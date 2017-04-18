@@ -10,24 +10,20 @@ import UIKit
 
 class EnterConditionsVC: UIViewController {
     
+    private var _advisoryData: NSSet!
+    
     //Text fields
     
     @IBOutlet weak var altitude: UITextField!
-    
     @IBOutlet weak var windDirection: UITextField!
-    
     @IBOutlet weak var windSpeed: UITextField!
-    
     @IBOutlet weak var windGusts: UITextField!
-    
     @IBOutlet weak var temperature: UITextField!
     
     //@IBOutlet weak var slope: UITextField!  (for future implementation)
     
     @IBOutlet weak var runwayHeading: UITextField!
-    
     @IBOutlet weak var aircraftWeight: UITextField!
-    
     @IBOutlet weak var approachSpdAdditive: UITextField!
     
     //Buttons
@@ -43,10 +39,18 @@ class EnterConditionsVC: UIViewController {
     @IBOutlet weak var noReversersBtn: UIButton!
     @IBOutlet weak var calculateBtn: UIButton!
     
+    var advisoryData: NSSet {
+        get {
+            return _advisoryData
+        } set {
+            _advisoryData = newValue
+        }
+    }
+    
+    var alertString: String = ""
     
     //For shortcut purposes.
     let rc = ResultsController.controller
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +60,16 @@ class EnterConditionsVC: UIViewController {
     //How can I transfer these to a view swift file?
     func selectButton (button: UIButton) {
         
+        button.isSelected = true
         button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        button.tintColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)
+        let titleColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)
+        button.setTitleColor(titleColor, for: .selected)
         
     }
     
     func deSelectButton (button: UIButton) {
         
+        button.isSelected = false
         button.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
         button.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
         
@@ -70,36 +77,42 @@ class EnterConditionsVC: UIViewController {
     
     func gatherInfoForResultsController() {
         
-        //        Still needed:
-        //        Advisory data set or array
-        //        Reported braking action
-        //        Approach Speed Additive
-        //        Reversers Available
-        
-        //TO DO: Need to find a way to check that all text fields contain values.
+        rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
         
         if let altitude = altitude.text {
             rc.airportAltitude = Double(altitude)!
+        } else {
+            alertString.append("Please enter airport altitude.\n")
         }
         
         if let windDirection = windDirection.text {
             rc.windDirection = Double(windDirection)!
+        } else {
+            alertString.append("Please enter wind direction.\n")
         }
         
         if let windSpeed = windSpeed.text {
             rc.windSpeed = Double(windSpeed)!
+        } else {
+            alertString.append("Please enter wind speed.\n")
         }
         
         if let windGust = windGusts.text {
             rc.windGust = Double(windGust)!
+        } else {
+            rc.windGust = 0
         }
         
         if let temperature = temperature.text {
             rc.airportTemperature = Double(temperature)!
+        } else {
+            alertString.append("Please enter airport temperature.\n")
         }
         
         if let runwayHeading = runwayHeading.text {
             rc.runwayHeading = Double(runwayHeading)!
+        } else {
+            alertString.append("Please enter runway heading.\n")
         }
         
         //Hard code the runway slope
@@ -107,18 +120,37 @@ class EnterConditionsVC: UIViewController {
         
         if let weight = aircraftWeight.text {
             rc.aircraftWeight = Double(weight)!
+        } else {
+            alertString.append("Please enter aircraft weight.\n")
         }
         
+        if let approachSpeedAdditive = approachSpdAdditive.text {
+            rc.approachSpdAdditive = Double(approachSpeedAdditive)!
+        } else {
+            alertString.append("Please enter wind correction to VREF.\n")
+        }
         
+        if dryBtn.isSelected {
+            rc.runwayCondition = "Dry"
+        } else if goodBtn.isSelected {
+            rc.runwayCondition = "Good"
+        } else if goodToMediumBtn.isSelected {
+            rc.runwayCondition = "Good to Medium"
+        } else if mediumBtn.isSelected {
+            rc.runwayCondition = "Medium"
+        } else if mediumToPoorBtn.isSelected {
+            rc.runwayCondition = "Medium to Poor"
+        } else if poorBtn.isSelected {
+            rc.runwayCondition = "Poor"
+        }
         
+        if oneReverserBtn.isSelected {
+            rc.reversersAvailable = 1
+        } else if noReversersBtn.isSelected {
+            rc.reversersAvailable = 0
+        }
         
     }
-    
-    
-    
-    
-    
-    
     
     @IBAction func brakingActionBtnPressed(_ sender: UIButton) {
         
@@ -221,9 +253,13 @@ class EnterConditionsVC: UIViewController {
     @IBAction func onCalculateBtnPressed(_ sender: Any) {
         
         gatherInfoForResultsController()
-        rc.attemptCalculation()
         
-        //Add segue to results display page.
+        if alertString.isEmpty {
+            rc.attemptCalculation()
+            //Do segue to results display page.
+        } else {
+            // throw the alert
+        }
         
     }
     

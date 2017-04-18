@@ -407,7 +407,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-Qf-dOC">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-RR-KXB">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-RR-KXB">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -415,12 +415,14 @@
                                                     <constraint firstAttribute="width" constant="160" id="TtU-Uj-Bek"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Dry"/>
+                                                <state key="normal" title="Dry">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="86H-a2-cT8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-Gq-dSM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-Gq-dSM">
                                                 <rect key="frame" x="220" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -428,12 +430,14 @@
                                                     <constraint firstAttribute="width" constant="160" id="h3R-tE-kn6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Good"/>
+                                                <state key="normal" title="Good">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="pyb-jA-VoD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oc8-gd-8nn">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oc8-gd-8nn">
                                                 <rect key="frame" x="440" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -441,7 +445,9 @@
                                                     <constraint firstAttribute="width" constant="160" id="ORp-ew-C8w"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Good to Medium"/>
+                                                <state key="normal" title="Good to Medium">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="vMD-nX-suZ"/>
                                                 </connections>
@@ -451,7 +457,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="QcA-nh-0fZ">
                                         <rect key="frame" x="0.0" y="55" width="600" height="35"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2K-2U-Gpb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2K-2U-Gpb">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -459,12 +465,14 @@
                                                     <constraint firstAttribute="height" constant="35" id="mE3-uS-rtf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Medium"/>
+                                                <state key="normal" title="Medium">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="Sr1-kd-BcP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Nc-kxy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Nc-kxy">
                                                 <rect key="frame" x="220" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -472,12 +480,14 @@
                                                     <constraint firstAttribute="width" constant="160" id="m01-VP-Y7S"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Medium to Poor"/>
+                                                <state key="normal" title="Medium to Poor">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="u4G-LR-dt8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-9e-e8T">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-9e-e8T">
                                                 <rect key="frame" x="440" y="0.0" width="160" height="35"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -485,7 +495,9 @@
                                                     <constraint firstAttribute="height" constant="35" id="fK5-25-qpz"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="Poor"/>
+                                                <state key="normal" title="Poor">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="brakingActionBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="F7V-zT-O7Y"/>
                                                 </connections>
@@ -570,7 +582,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Y6o-wo-jXi" userLabel="Reversers Stack View">
                                 <rect key="frame" x="51.5" y="538.5" width="600" height="35"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5W-B7-Vya">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5W-B7-Vya">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -578,12 +590,14 @@
                                             <constraint firstAttribute="width" constant="160" id="8YY-p5-SZJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="Both Reversers"/>
+                                        <state key="normal" title="Both Reversers">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="aD0-4B-Ipn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-PU-2mU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-PU-2mU">
                                         <rect key="frame" x="220" y="0.0" width="160" height="35"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50454837330000002" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -591,12 +605,14 @@
                                             <constraint firstAttribute="height" constant="35" id="n7j-6J-Eov"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="One Reverser"/>
+                                        <state key="normal" title="One Reverser">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="anu-Xq-1NO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gde-aC-Dvt">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gde-aC-Dvt">
                                         <rect key="frame" x="440" y="0.0" width="160" height="35"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -604,7 +620,10 @@
                                             <constraint firstAttribute="height" constant="35" id="XEq-0O-Pzh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="No Reversers"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="No Reversers">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="reverseThrustBtnPressed:" destination="jEP-nQ-JNv" eventType="touchUpInside" id="NKl-k5-q4f"/>
                                         </connections>

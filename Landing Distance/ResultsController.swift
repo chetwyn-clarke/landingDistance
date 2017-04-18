@@ -17,6 +17,8 @@ class ResultsController {
     // Variables needed:
     
     private var _advisoryData: [AdvisoryData]!
+    private var _runwayCondition: String!
+    
     private var _airportAltitude: Double!
     private var _windDirection: Double!
     private var _windSpeed: Double!
@@ -34,6 +36,14 @@ class ResultsController {
             return _advisoryData
         } set {
             _advisoryData = newValue
+        }
+    }
+    
+    var runwayCondition : String {
+        get {
+            return _runwayCondition
+        } set {
+            _runwayCondition = newValue
         }
     }
     
