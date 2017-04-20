@@ -47,10 +47,13 @@ class EnterConditionsVC: UIViewController {
         }
     }
     
+    
+    
     var alertString: String = ""
     
     //For shortcut purposes.
     let rc = ResultsController.controller
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,57 +80,74 @@ class EnterConditionsVC: UIViewController {
     
     func gatherInfoForResultsController() {
         
-        rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
+        //rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
+        
         
         if let altitude = altitude.text {
-            rc.airportAltitude = Double(altitude)!
-        } else {
-            alertString.append("Please enter airport altitude.\n")
+            if let dAltitude = Double(altitude) {
+                rc.airportAltitude = dAltitude
+            } else {
+                alertString.append("Please enter airport altitude.\n")
+            }
         }
         
         if let windDirection = windDirection.text {
-            rc.windDirection = Double(windDirection)!
-        } else {
-            alertString.append("Please enter wind direction.\n")
+            if let dWindDirection = Double(windDirection) {
+                rc.windDirection = dWindDirection
+            } else {
+                alertString.append("Please enter wind direction.\n")
+            }
         }
         
         if let windSpeed = windSpeed.text {
-            rc.windSpeed = Double(windSpeed)!
-        } else {
-            alertString.append("Please enter wind speed.\n")
+            if let dWindSpeed = Double(windSpeed) {
+                rc.windSpeed = dWindSpeed
+            } else {
+                alertString.append("Please enter wind speed.\n")
+            }
         }
         
         if let windGust = windGusts.text {
-            rc.windGust = Double(windGust)!
-        } else {
-            rc.windGust = 0
+            if let dWindGust = Double(windGust) {
+                rc.windGust = dWindGust
+            } else {
+                rc.windGust = 0
+            }
         }
         
         if let temperature = temperature.text {
-            rc.airportTemperature = Double(temperature)!
-        } else {
-            alertString.append("Please enter airport temperature.\n")
+            if let dTemperature = Double(temperature) {
+                rc.airportTemperature = dTemperature
+            } else {
+                alertString.append("Please enter airport temperature.\n")
+            }
         }
         
         if let runwayHeading = runwayHeading.text {
-            rc.runwayHeading = Double(runwayHeading)!
-        } else {
-            alertString.append("Please enter runway heading.\n")
+            if let dRunwayHeading = Double(runwayHeading) {
+                rc.runwayHeading = dRunwayHeading
+            } else {
+                alertString.append("Please enter runway heading.\n")
+            }
         }
         
         //Hard code the runway slope
         rc.runwaySlope = -2.0
         
         if let weight = aircraftWeight.text {
-            rc.aircraftWeight = Double(weight)!
-        } else {
-            alertString.append("Please enter aircraft weight.\n")
+            if let dWeight = Double(weight) {
+                rc.aircraftWeight = dWeight
+            } else {
+                alertString.append("Please enter aircraft weight.\n")
+            }
         }
         
         if let approachSpeedAdditive = approachSpdAdditive.text {
-            rc.approachSpdAdditive = Double(approachSpeedAdditive)!
-        } else {
-            alertString.append("Please enter wind correction to VREF.\n")
+            if let dAdditive = Double(approachSpeedAdditive) {
+                rc.approachSpdAdditive = dAdditive
+            } else {
+                alertString.append("Please enter wind correction to VREF.\n")
+            }
         }
         
         if dryBtn.isSelected {
@@ -150,104 +170,36 @@ class EnterConditionsVC: UIViewController {
             rc.reversersAvailable = 0
         }
         
+        print("Alert string: \(alertString)")
+        
     }
     
     @IBAction func brakingActionBtnPressed(_ sender: UIButton) {
         
-        switch sender {
+        let buttons: [UIButton] = [dryBtn, goodBtn, goodToMediumBtn, mediumBtn, mediumToPoorBtn, poorBtn]
+        
+        for button in buttons {
             
-        case dryBtn:
-            
-            selectButton(button: dryBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: poorBtn)
-            
-        case goodBtn:
-            
-            selectButton(button: goodBtn)
-            deSelectButton(button: dryBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: poorBtn)
-            
-        case goodToMediumBtn:
-            
-            selectButton(button: goodToMediumBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: dryBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: poorBtn)
-            
-        case mediumBtn:
-            
-            selectButton(button: mediumBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: dryBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: poorBtn)
-            
-        case mediumToPoorBtn:
-            
-            selectButton(button: mediumToPoorBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: dryBtn)
-            deSelectButton(button: poorBtn)
-            
-        case poorBtn:
-            
-            selectButton(button: poorBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: dryBtn)
-            
-        default:
-            
-            deSelectButton(button: dryBtn)
-            deSelectButton(button: goodBtn)
-            deSelectButton(button: goodToMediumBtn)
-            deSelectButton(button: mediumBtn)
-            deSelectButton(button: mediumToPoorBtn)
-            deSelectButton(button: poorBtn)
-            
+            if button == sender {
+                selectButton(button: button)
+            } else if button != sender {
+                deSelectButton(button: button)
+            }
         }
     }
     
     @IBAction func reverseThrustBtnPressed(_ sender: UIButton) {
         
-        switch sender {
-            
-        case twoReversersBtn:
-            selectButton(button: twoReversersBtn)
-            deSelectButton(button: oneReverserBtn)
-            deSelectButton(button: noReversersBtn)
-            
-        case oneReverserBtn:
-            selectButton(button: oneReverserBtn)
-            deSelectButton(button: twoReversersBtn)
-            deSelectButton(button: noReversersBtn)
-            
-        case noReversersBtn:
-            selectButton(button: noReversersBtn)
-            deSelectButton(button: oneReverserBtn)
-            deSelectButton(button: twoReversersBtn)
-            
-        default:
-            deSelectButton(button: twoReversersBtn)
-            deSelectButton(button: oneReverserBtn)
-            deSelectButton(button: noReversersBtn)
-            
-        }
+        let buttons: [UIButton] = [twoReversersBtn, oneReverserBtn, noReversersBtn]
         
+        for button in buttons {
+            
+            if button == sender {
+                selectButton(button: button)
+            } else if button != sender {
+                deSelectButton(button: button)
+            }
+        }
     }
     
     @IBAction func onCalculateBtnPressed(_ sender: Any) {
@@ -258,7 +210,15 @@ class EnterConditionsVC: UIViewController {
             rc.attemptCalculation()
             //Do segue to results display page.
         } else {
-            // throw the alert
+            
+            let alertController = UIAlertController(title: "Please review the following:", message: alertString, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(okAction)
+            
+            let presenterHandler = { self.alertString = ""}
+            
+            present(alertController, animated: true, completion: presenterHandler)
+            
         }
         
     }
@@ -279,4 +239,12 @@ class EnterConditionsVC: UIViewController {
     }
     */
 
+}
+
+extension EnterConditionsVC: AdvisoryDataSentDelegate {
+    
+    func userDidSelectConfiguration(advisoryDataSet: NSSet) {
+        advisoryData = advisoryDataSet
+    }
+    
 }
