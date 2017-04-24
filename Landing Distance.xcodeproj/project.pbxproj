@@ -25,6 +25,7 @@
 		733A27E31E95D4390079C4E7 /* AircraftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27E21E95D4390079C4E7 /* AircraftCell.swift */; };
 		733A27E51E95D5A20079C4E7 /* AircraftListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */; };
 		733B47FD1E9BA85A0097D67D /* EnterConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */; };
+		735E071E1EA933BA0012B9EF /* InitialDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735E071D1EA933BA0012B9EF /* InitialDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		733A27E21E95D4390079C4E7 /* AircraftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftCell.swift; sourceTree = "<group>"; };
 		733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftListVC.swift; sourceTree = "<group>"; };
 		733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterConditionsVC.swift; sourceTree = "<group>"; };
+		735E071D1EA933BA0012B9EF /* InitialDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				733A27E41E95D5A20079C4E7 /* AircraftListVC.swift */,
 				7309240E1E95FDFB0070DA15 /* ConfigurationListVC.swift */,
 				733B47FC1E9BA85A0097D67D /* EnterConditionsVC.swift */,
+				735E071D1EA933BA0012B9EF /* InitialDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				733A27DA1E95D0090079C4E7 /* Aircraft+CoreDataClass.swift in Sources */,
 				730924111E96054C0070DA15 /* ConfigurationCell.swift in Sources */,
 				7309240F1E95FDFB0070DA15 /* ConfigurationListVC.swift in Sources */,
+				735E071E1EA933BA0012B9EF /* InitialDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

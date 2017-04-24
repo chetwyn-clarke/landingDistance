@@ -136,7 +136,7 @@ class ResultsController {
         
         for data in advisoryData {
             
-            let weightAdjustment = calculateWeightAdjustment(aircraftWeight: _aircraftWeight, data: data)
+            let weightAdjustment = calculateWeightAdjustment(unAdjustedAircraftWeight: _aircraftWeight, data: data)
             
             let altitudeAdjustment = calculateAltitudeAdjustment(airportAltitude: _airportAltitude, data: data)
             
@@ -157,9 +157,11 @@ class ResultsController {
         }
     }
     
-    func calculateWeightAdjustment(aircraftWeight: Double, data: AdvisoryData) -> Double {
+    func calculateWeightAdjustment(unAdjustedAircraftWeight: Double, data: AdvisoryData) -> Double {
         
         // First, select the correct adjustment factor.
+        
+        let aircraftWeight = unAdjustedAircraftWeight * 1000
         
         var weightAdjustment: Double
         var weightAdjFactor: Double = 0

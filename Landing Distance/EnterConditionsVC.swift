@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EnterConditionsVC: UIViewController {
     
@@ -39,7 +40,7 @@ class EnterConditionsVC: UIViewController {
     @IBOutlet weak var noReversersBtn: UIButton!
     @IBOutlet weak var calculateBtn: UIButton!
     
-    var advisoryData: NSSet {
+    var advisoryData: NSSet! {
         get {
             return _advisoryData
         } set {
@@ -51,36 +52,23 @@ class EnterConditionsVC: UIViewController {
     
     var alertString: String = ""
     
-    //For shortcut purposes.
-    let rc = ResultsController.controller
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setDelegateForConfigurationListVC()
         
     }
     
     //How can I transfer these to a view swift file?
-    func selectButton (button: UIButton) {
-        
-        button.isSelected = true
-        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        let titleColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)
-        button.setTitleColor(titleColor, for: .selected)
-        
-    }
     
-    func deSelectButton (button: UIButton) {
-        
-        button.isSelected = false
-        button.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        button.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
-        
-    }
+    
+    
+    //MARK: - Set values in Results Controller
+    
+    let rc = ResultsController.controller
     
     func gatherInfoForResultsController() {
         
-        //rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
+        rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
         
         
         if let altitude = altitude.text {
@@ -174,6 +162,8 @@ class EnterConditionsVC: UIViewController {
         
     }
     
+    //MARK: - IBActions
+    
     @IBAction func brakingActionBtnPressed(_ sender: UIButton) {
         
         let buttons: [UIButton] = [dryBtn, goodBtn, goodToMediumBtn, mediumBtn, mediumToPoorBtn, poorBtn]
@@ -208,7 +198,10 @@ class EnterConditionsVC: UIViewController {
         
         if alertString.isEmpty {
             rc.attemptCalculation()
-            //Do segue to results display page.
+            print("Calculation attempted.")
+            
+            //TODO: Segue to results display page.
+            
         } else {
             
             let alertController = UIAlertController(title: "Please review the following:", message: alertString, preferredStyle: .alert)
@@ -222,12 +215,6 @@ class EnterConditionsVC: UIViewController {
         }
         
     }
-    
-    
-    
-
-
-    
 
     /*
     // MARK: - Navigation
@@ -241,10 +228,40 @@ class EnterConditionsVC: UIViewController {
 
 }
 
+
+
+//Functions
+
+extension EnterConditionsVC {
+    
+    //TODO: Create a View file that controls configuration of the buttons.
+    
+    func selectButton (button: UIButton) {
+        
+        button.isSelected = true
+        button.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        let titleColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0)
+        button.setTitleColor(titleColor, for: .selected)
+        
+    }
+    
+    func deSelectButton (button: UIButton) {
+        
+        button.isSelected = false
+        button.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        button.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
+        
+    }
+    
+}
+
 extension EnterConditionsVC: AdvisoryDataSentDelegate {
     
     func userDidSelectConfiguration(advisoryDataSet: NSSet) {
         advisoryData = advisoryDataSet
+        print("AdvisoryData Sent to Enter Conditions VC")
     }
     
 }
+
+

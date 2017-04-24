@@ -113,6 +113,7 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
             let selectedAdvisorySet = selectedConfiguration.advisoryData
             if let set = selectedAdvisorySet {
                 advisoryDelegate?.userDidSelectConfiguration(advisoryDataSet: set)
+                print("Set sent to protocol function.")
             }
         }
     }

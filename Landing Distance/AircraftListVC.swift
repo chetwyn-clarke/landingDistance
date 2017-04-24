@@ -79,9 +79,21 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let splitViewController = self.splitViewController
+        
+        let detailNavController = splitViewController?.viewControllers.last as? UINavigationController
+        
         if let destination = segue.destination as? ConfigurationListVC {
+            
             if let aircraft = sender as? Aircraft {
                 destination.selectedAircraft = aircraft
+            }
+            
+            if let enterConditionsVC = detailNavController?.topViewController as? EnterConditionsVC {
+                destination.advisoryDelegate = enterConditionsVC
+                print("Delegate set")
+            } else {
+                print("Delegate not set")
             }
             
         }
@@ -431,16 +443,6 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 
