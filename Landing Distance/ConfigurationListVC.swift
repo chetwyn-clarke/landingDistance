@@ -11,7 +11,7 @@ import CoreData
 
 // To send advisoryData object to EnterDetailsVC we have to set up a delegate here and implement it in the receivingVC.
 
-protocol AdvisoryDataSentDelegate {
+protocol AdvisoryDataSentDelegate: NSObjectProtocol {
     
     func userDidSelectConfiguration(advisoryDataSet: NSSet)
 }
@@ -30,7 +30,7 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
     
     var controller: NSFetchedResultsController<Configuration>!
     
-    var advisoryDelegate: AdvisoryDataSentDelegate?
+    weak var advisoryDelegate: AdvisoryDataSentDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

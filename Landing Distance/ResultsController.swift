@@ -14,9 +14,11 @@ class ResultsController {
     
     static let controller = ResultsController()
     
+    //MARK: - Private Variables
+    
     // Variables needed:
     
-    private var _advisoryData: [AdvisoryData]!
+    private var _advisoryData: NSSet!
     private var _runwayCondition: String!
     
     private var _airportAltitude: Double!
@@ -31,7 +33,10 @@ class ResultsController {
     private var _approachSpdAdditive: Double!
     private var _reversersAvailable: Int!
     
-    var advisoryData: [AdvisoryData] {
+    
+    //MARK: - Variables
+    
+    var advisoryData: NSSet {
         get {
             return _advisoryData
         } set {
@@ -127,34 +132,49 @@ class ResultsController {
         }
     }
     
-    
-    // Functions
+    //MARK: - Functions
     
     func attemptCalculation() {
         
         //Need to get the advisory data.  Need to get only the advisory data associated with a specific braking action. Might have to do some rearranging to order them into an array?  Or, at end of function put them in a dictionary ordered alphabetically, with the key being the braking configuration, and the value being the calculated landing distance.?
         
-        for data in advisoryData {
+        
+        if let dataSet = _advisoryData {
             
-            let weightAdjustment = calculateWeightAdjustment(unAdjustedAircraftWeight: _aircraftWeight, data: data)
+            let dataArray = Array(dataSet) as! [AdvisoryData]
             
-            let altitudeAdjustment = calculateAltitudeAdjustment(airportAltitude: _airportAltitude, data: data)
+            if dataArray.isEmpty {
+                print("dataArray is Empty")
+            }
             
-            let windAdjustment = calculateWindAdjustment(runwayHeading: _runwayHeading, data: data)
+            for data in dataArray {
+                
+                let weightAdjustment = calculateWeightAdjustment(unAdjustedAircraftWeight: _aircraftWeight, data: data )
+                
+                let altitudeAdjustment = calculateAltitudeAdjustment(airportAltitude: _airportAltitude, data: data)
+                
+                let windAdjustment = calculateWindAdjustment(runwayHeading: _runwayHeading, data: data)
+                
+                let slopeAdjustment = calculateSlopeAdjustment(runwaySlope: _runwaySlope, data: data)
+                
+                let temperatureAdjustment = calculateTemperatureAdjustment(airportElevation: _airportAltitude, airportTemperature: _temperature, data: data)
+                
+                let approachSpeedAdjustment = calculateApproachSpeedAdjustment(adjustmentToRefSpd: _approachSpdAdditive, data: data)
+                
+                let reverseThrustAdjustment = calculateReverseThrustAdjustment(reversersAvailable: _reversersAvailable, data: data)
+                
+                let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + windAdjustment + slopeAdjustment + temperatureAdjustment + approachSpeedAdjustment + reverseThrustAdjustment
+                
+                print("Calculated landing distance: \(landingDistance)")
+                
+            }
             
-            let slopeAdjustment = calculateSlopeAdjustment(runwaySlope: _runwaySlope, data: data)
+        } else {
             
-            let temperatureAdjustment = calculateTemperatureAdjustment(airportElevation: _airportAltitude, airportTemperature: _temperature, data: data)
-            
-            let approachSpeedAdjustment = calculateApproachSpeedAdjustment(adjustmentToRefSpd: _approachSpdAdditive, data: data)
-            
-            let reverseThrustAdjustment = calculateReverseThrustAdjustment(reversersAvailable: _reversersAvailable, data: data)
-            
-            let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + windAdjustment + slopeAdjustment + temperatureAdjustment + approachSpeedAdjustment + reverseThrustAdjustment
-            
-            print("Calculated landing distance: \(landingDistance)")
-            
+            print("No data set available for attemptCalculation func.")
         }
+        
+        
     }
     
     func calculateWeightAdjustment(unAdjustedAircraftWeight: Double, data: AdvisoryData) -> Double {

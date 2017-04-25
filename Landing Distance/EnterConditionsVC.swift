@@ -11,7 +11,7 @@ import CoreData
 
 class EnterConditionsVC: UIViewController {
     
-    private var _advisoryData: NSSet!
+    //MARK: - IBOutlets
     
     //Text fields
     
@@ -40,6 +40,12 @@ class EnterConditionsVC: UIViewController {
     @IBOutlet weak var noReversersBtn: UIButton!
     @IBOutlet weak var calculateBtn: UIButton!
     
+    
+    
+    //MARK: - Variables
+    
+    private var _advisoryData: NSSet!
+    
     var advisoryData: NSSet! {
         get {
             return _advisoryData
@@ -48,17 +54,13 @@ class EnterConditionsVC: UIViewController {
         }
     }
     
-    
-    
     var alertString: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setDelegateForConfigurationListVC()
         
     }
-    
-    //How can I transfer these to a view swift file?
     
     
     
@@ -68,8 +70,7 @@ class EnterConditionsVC: UIViewController {
     
     func gatherInfoForResultsController() {
         
-        rc.advisoryData = Array(advisoryData) as! [AdvisoryData]
-        
+        rc.advisoryData = advisoryData
         
         if let altitude = altitude.text {
             if let dAltitude = Double(altitude) {
@@ -150,17 +151,25 @@ class EnterConditionsVC: UIViewController {
             rc.runwayCondition = "Medium to Poor"
         } else if poorBtn.isSelected {
             rc.runwayCondition = "Poor"
+        } else {
+            alertString.append("Please select the runway condition.\n")
         }
         
-        if oneReverserBtn.isSelected {
+        if twoReversersBtn.isSelected {
+            //Do nothing.  
+        } else if oneReverserBtn.isSelected {
             rc.reversersAvailable = 1
         } else if noReversersBtn.isSelected {
             rc.reversersAvailable = 0
+        } else {
+            alertString.append("Please select the amount of thrust reversers available.\n")
         }
         
         print("Alert string: \(alertString)")
         
     }
+    
+    
     
     //MARK: - IBActions
     
