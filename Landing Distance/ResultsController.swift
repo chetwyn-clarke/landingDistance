@@ -373,6 +373,9 @@ class ResultsController {
             
             reverseThrustAdjustment = data.revThrustAdjOneRev
             
+        } else if reversersAvailable == 2 {
+            
+            reverseThrustAdjustment = 0
         }
         
         print("Reverse thrust adjustment: \(reverseThrustAdjustment)")

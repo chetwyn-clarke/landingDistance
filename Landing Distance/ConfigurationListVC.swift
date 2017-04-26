@@ -108,14 +108,19 @@ class ConfigurationListVC: UITableViewController, NSFetchedResultsControllerDele
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let fetchedObjs = controller.fetchedObjects, fetchedObjs.count > 0 {
-            let selectedConfiguration = fetchedObjs[indexPath.row]
-            let selectedAdvisorySet = selectedConfiguration.advisoryData
-            if let set = selectedAdvisorySet {
-                advisoryDelegate?.userDidSelectConfiguration(advisoryDataSet: set)
-                print("Set sent to protocol function.")
-            }
+        let selectedConfiguration = controller.object(at: indexPath as IndexPath)
+        
+        let selectedAdvisorySet = selectedConfiguration.advisoryData
+        
+        if let set = selectedAdvisorySet {
+            print("selectedAdvisorySetCount is \(set.count).")
+            
+            advisoryDelegate?.userDidSelectConfiguration(advisoryDataSet: set)
+            
+            print("Set sent to protocol function.")
+            
         }
+        
     }
     
     func attemptFetch() {

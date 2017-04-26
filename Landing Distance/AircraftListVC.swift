@@ -270,7 +270,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData331.revThrustAdjOneRev = 690
         advisoryData331.revThrustAdjNoRev = 1560
         advisoryData331.aircraft = aircraft3
-        advisoryData331.configuration = configuration33
+        //advisoryData331.configuration = configuration33
+        configuration33.addToAdvisoryData(advisoryData331)
         
         let advisoryData332 = AdvisoryData(context: context)
         advisoryData332.brakeAction = "Dry"
@@ -292,7 +293,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData332.revThrustAdjOneRev = 690
         advisoryData332.revThrustAdjNoRev = 1560
         advisoryData332.aircraft = aircraft3
-        advisoryData332.configuration = configuration33
+        //advisoryData332.configuration = configuration33
+        configuration33.addToAdvisoryData(advisoryData332)
         
         let advisoryData333 = AdvisoryData(context: context)
         advisoryData333.brakeAction = "Dry"
@@ -315,6 +317,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData333.revThrustAdjNoRev = 770
         advisoryData333.aircraft = aircraft3
         advisoryData333.configuration = configuration33
+        configuration33.addToAdvisoryData(advisoryData333)
         
         // Advisory Data for Configuration34
         
@@ -338,7 +341,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData341.revThrustAdjOneRev = 130
         advisoryData341.revThrustAdjNoRev = 130
         advisoryData341.aircraft = aircraft3
-        advisoryData341.configuration = configuration34
+        //advisoryData341.configuration = configuration34
+        configuration34.addToAdvisoryData(advisoryData341)
         
         print("Test data generated")
         

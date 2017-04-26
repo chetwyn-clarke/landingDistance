@@ -156,7 +156,7 @@ class EnterConditionsVC: UIViewController {
         }
         
         if twoReversersBtn.isSelected {
-            //Do nothing.  
+            rc.reversersAvailable = 2
         } else if oneReverserBtn.isSelected {
             rc.reversersAvailable = 1
         } else if noReversersBtn.isSelected {
