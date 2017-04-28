@@ -261,8 +261,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData331.altAdjHigh = 250
         advisoryData331.windAdjHeadwind = -280
         advisoryData331.windAdjTailwind = 980
-        advisoryData331.slopeAdjUp = 260
-        advisoryData331.slopeAdjDown = -210
+        advisoryData331.slopeAdjDown = 260
+        advisoryData331.slopeAdjUp = -210
         advisoryData331.tempAdjAbvISA = 160
         advisoryData331.tempAdjBlwISA = -160
         advisoryData331.refSpeed = "VREF30"
@@ -284,8 +284,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData332.altAdjHigh = 250
         advisoryData332.windAdjHeadwind = -280
         advisoryData332.windAdjTailwind = 980
-        advisoryData332.slopeAdjUp = 250
-        advisoryData332.slopeAdjDown = -200
+        advisoryData332.slopeAdjDown = 250
+        advisoryData332.slopeAdjUp = -200
         advisoryData332.tempAdjAbvISA = 160
         advisoryData332.tempAdjBlwISA = -160
         advisoryData332.refSpeed = "VREF30"
@@ -307,8 +307,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData333.altAdjHigh = 290
         advisoryData333.windAdjHeadwind = -360
         advisoryData333.windAdjTailwind = 1230
-        advisoryData333.slopeAdjUp = 100
-        advisoryData333.slopeAdjDown = -80
+        advisoryData333.slopeAdjDown = 100
+        advisoryData333.slopeAdjUp = -80
         advisoryData333.tempAdjAbvISA = 220
         advisoryData333.tempAdjBlwISA = -230
         advisoryData333.refSpeed = "VREF30"
@@ -332,8 +332,8 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
         advisoryData341.altAdjHigh = 120
         advisoryData341.windAdjHeadwind = -140
         advisoryData341.windAdjTailwind = 480
-        advisoryData341.slopeAdjUp = 60
-        advisoryData341.slopeAdjDown = -50
+        advisoryData341.slopeAdjDown = 60
+        advisoryData341.slopeAdjUp = -50
         advisoryData341.tempAdjAbvISA = 90
         advisoryData341.tempAdjBlwISA = -90
         advisoryData341.refSpeed = "VREF15"

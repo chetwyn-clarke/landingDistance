@@ -132,22 +132,25 @@ class ResultsController {
         }
     }
     
+    var results: [Result] = []
+    
     //MARK: - Functions
     
     func attemptCalculation() {
         
-        //Need to get the advisory data.  Need to get only the advisory data associated with a specific braking action. Might have to do some rearranging to order them into an array?  Or, at end of function put them in a dictionary ordered alphabetically, with the key being the braking configuration, and the value being the calculated landing distance.?
-        
-        
         if let dataSet = _advisoryData {
             
             let dataArray = Array(dataSet) as! [AdvisoryData]
+            
+            var unSortedResults: [Result] = []
             
             if dataArray.isEmpty {
                 print("dataArray is Empty")
             }
             
             for data in dataArray {
+                
+                //let brakeSetting = data.brakeConfiguration
                 
                 let weightAdjustment = calculateWeightAdjustment(unAdjustedAircraftWeight: _aircraftWeight, data: data )
                 
@@ -165,8 +168,29 @@ class ResultsController {
                 
                 let landingDistance = data.refDistance + weightAdjustment + altitudeAdjustment + windAdjustment + slopeAdjustment + temperatureAdjustment + approachSpeedAdjustment + reverseThrustAdjustment
                 
-                print("Calculated landing distance: \(landingDistance)")
+                print("Calculated landing distance: \(landingDistance)\n")
                 
+                
+                //FIXME: Any way to make this more efficient?
+                
+                let theResult = Result()
+                
+                if let brakeConfig = data.brakeConfiguration {
+                    theResult.brakeConfig = brakeConfig
+                } else {
+                    print("No brake config in Result object.")
+                }
+                
+                theResult.distanceRequired = landingDistance
+                
+                unSortedResults.append(theResult)
+            
+            }
+            
+            results = unSortedResults.sorted(by: { (first: Result, second: Result) -> Bool in first.brakeConfig > second.brakeConfig})
+            
+            for result in results {
+                print("\(result.brakeConfig): \(result.distanceRequired)")
             }
             
         } else {
