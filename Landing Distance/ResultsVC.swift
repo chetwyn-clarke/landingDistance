@@ -31,6 +31,8 @@ class ResultsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             notes.text = configNotes
         }
         
+        tableView.reloadData()
+        
         print(results.count)
         
     }

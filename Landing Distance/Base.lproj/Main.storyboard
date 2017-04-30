@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kCH-dY-NXk" userLabel="Results Stack View">
-                                <rect key="frame" x="20" y="72" width="662.5" height="325"/>
+                                <rect key="frame" x="20" y="72" width="663" height="325"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESULTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1m-wY-lZG">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -164,7 +164,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="563" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nbR-qv-Wea" id="HeX-fg-AbW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="563" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="562.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-Uy-Ala">
@@ -210,7 +210,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k4F-Ox-eXf" userLabel="Notes Stack View">
-                                <rect key="frame" x="20" y="412" width="662.5" height="346"/>
+                                <rect key="frame" x="20" y="412" width="663" height="346"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaZ-Yo-W8n">
                                         <rect key="frame" x="0.0" y="0.0" width="63.5" height="30"/>
@@ -415,7 +415,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cu-3P-LCC" userLabel="Temperature Stack View">
-                                <rect key="frame" x="478" y="157" width="195" height="25"/>
+                                <rect key="frame" x="477.5" y="157" width="195" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM8-Zg-JJy">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="25"/>
@@ -465,7 +465,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JrA-aJ-OEU" userLabel="Runway Slope Stack View">
-                                <rect key="frame" x="478" y="197" width="195" height="25"/>
+                                <rect key="frame" x="477.5" y="197" width="195" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runway Slope: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6is-bC-QtU">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="25"/>
@@ -605,7 +605,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXF-9n-KTz" userLabel="Section 1 Divider View">
-                                <rect key="frame" x="20" y="392" width="663" height="1"/>
+                                <rect key="frame" x="20" y="392" width="662.5" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="SK7-7h-Hu3"/>
@@ -643,7 +643,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="7ly-OM-rm8" userLabel="Wind Additive Stack View">
-                                <rect key="frame" x="376" y="458.5" width="297" height="25"/>
+                                <rect key="frame" x="375.5" y="458.5" width="297" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approach Speed: VREF +" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvX-ox-PLL">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="25"/>
@@ -729,14 +729,14 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wci-dv-g2K" userLabel="Section 2 Divider View">
-                                <rect key="frame" x="20" y="623.5" width="663" height="1"/>
+                                <rect key="frame" x="20" y="623.5" width="662.5" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="Bh8-ou-Cc7"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRT-4f-G4g">
-                                <rect key="frame" x="20" y="654.5" width="663" height="60"/>
+                                <rect key="frame" x="20" y="654.5" width="662.5" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.32549617879999998" blue="0.24119391139999999" alpha="0.74505029970000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="vms-aa-uSc"/>
