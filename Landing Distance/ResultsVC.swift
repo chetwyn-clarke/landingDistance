@@ -8,13 +8,49 @@
 
 import UIKit
 
-class ResultsVC: UIViewController {
+class ResultsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notes: UILabel!
+    
+    var results: [Result]!
+    var selectedConfiguration: Configuration!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        updateUI()
     }
+    
+    func updateUI() {
+        
+        if let configNotes = selectedConfiguration.notes {
+            notes.text = configNotes
+        }
+        
+        print(results.count)
+        
+    }
+    
+    //MARK: - Table View Implementation
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for: indexPath) as! ResultsCell
+        let result = results[indexPath.row]
+        cell.configureCell(result: result)
+        return cell
+        
+    }
+    
+    
     
     /*
     // MARK: - Navigation
@@ -28,24 +64,5 @@ class ResultsVC: UIViewController {
 
 }
 
-//MARK: - Table View Implementation
 
-extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
-    
-    //TODO: Set tableView Requirements.  Need height and results array.
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for: indexPath) as! ResultsCell
-        //TODO: Create a Results array to use to configure the cell.
-        //cell.configureCell(result: <#T##Result#>)
-        return cell
-    }
-    
-    
-    
-}
+

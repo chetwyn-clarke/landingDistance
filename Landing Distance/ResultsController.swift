@@ -132,11 +132,11 @@ class ResultsController {
         }
     }
     
-    var results: [Result] = []
-    
     //MARK: - Functions
     
-    func attemptCalculation() {
+    func attemptCalculation() -> [Result] {
+        
+        var results: [Result] = []
         
         if let dataSet = _advisoryData {
             
@@ -198,6 +198,8 @@ class ResultsController {
             print("No data set available for attemptCalculation func.")
         }
         
+        print(results.count)
+        return results
         
     }
     

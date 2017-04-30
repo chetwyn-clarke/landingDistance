@@ -15,7 +15,7 @@ class ResultsCell: UITableViewCell {
     @IBOutlet weak var landingDistance: UILabel!
     
     func configureCell(result: Result) {
-        brakeConfiguration.text = result.brakeConfig
+        brakeConfiguration.text = result.brakeConfig + ":"
         landingDistance.text = "\(result.distanceRequired)"
         
     }
@@ -25,10 +25,5 @@ class ResultsCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

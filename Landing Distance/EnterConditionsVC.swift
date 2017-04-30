@@ -44,7 +44,16 @@ class EnterConditionsVC: UIViewController {
     
     //MARK: - Variables
     
+    private var _selectedConfiguration: Configuration!
     private var _advisoryData: NSSet!
+    
+    var selectedConfiguration: Configuration! {
+        get {
+            return _selectedConfiguration
+        } set {
+            _selectedConfiguration = newValue
+        }
+    }
     
     var advisoryData: NSSet! {
         get {
@@ -55,6 +64,7 @@ class EnterConditionsVC: UIViewController {
     }
     
     var alertString: String = ""
+    var results: [Result] = []
     
     
     override func viewDidLoad() {
@@ -63,14 +73,19 @@ class EnterConditionsVC: UIViewController {
     }
     
     
-    
     //MARK: - Set values in Results Controller
     
     let rc = ResultsController.controller
     
     func gatherInfoForResultsController() {
         
-        rc.advisoryData = advisoryData
+        if let data = advisoryData {
+            rc.advisoryData = data
+        } else {
+            alertString.append("Please select an aircraft type and/or configuration.\n")
+        }
+        
+        //rc.advisoryData = advisoryData
         
         if let altitude = altitude.text {
             if let dAltitude = Double(altitude) {
@@ -170,7 +185,6 @@ class EnterConditionsVC: UIViewController {
     }
     
     
-    
     //MARK: - IBActions
     
     @IBAction func brakingActionBtnPressed(_ sender: UIButton) {
@@ -206,10 +220,10 @@ class EnterConditionsVC: UIViewController {
         gatherInfoForResultsController()
         
         if alertString.isEmpty {
-            rc.attemptCalculation()
+            results = rc.attemptCalculation()
             print("Calculation attempted.")
-            
-            //TODO: Segue to results display page.
+            print("Results in EnterConditionsVC = \(results.count)")
+            performSegue(withIdentifier: "toResutlsVC", sender: self)
             
         } else {
             
@@ -225,21 +239,25 @@ class EnterConditionsVC: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let destination = segue.destination as? ResultsVC {
+            
+            destination.results = results
+            print("Results sent via segue")
+            destination.selectedConfiguration = selectedConfiguration
+            print("Config sent via segue.")
+            
+        }
+        
     }
-    */
 
 }
 
 
-
-//Functions
+//MARK: - Extensions
 
 extension EnterConditionsVC {
     
@@ -264,12 +282,18 @@ extension EnterConditionsVC {
     
 }
 
-extension EnterConditionsVC: AdvisoryDataSentDelegate {
+extension EnterConditionsVC: ConfigurationSentDelegate {
     
-    func userDidSelectConfiguration(advisoryDataSet: NSSet) {
-        advisoryData = advisoryDataSet
+    func userDidSelectConfiguration(configuration: Configuration) {
+        selectedConfiguration = configuration
+        
+        if let data = configuration.advisoryData {
+            advisoryData = data
+        }
+    
         print("AdvisoryData Sent to Enter Conditions VC")
     }
+
     
 }
 

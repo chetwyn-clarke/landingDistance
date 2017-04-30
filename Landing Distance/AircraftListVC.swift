@@ -90,7 +90,7 @@ class AircraftListVC: UITableViewController, NSFetchedResultsControllerDelegate 
             }
             
             if let enterConditionsVC = detailNavController?.topViewController as? EnterConditionsVC {
-                destination.advisoryDelegate = enterConditionsVC
+                destination.configurationDelegate = enterConditionsVC
                 print("Delegate set")
             } else {
                 print("Delegate not set")
